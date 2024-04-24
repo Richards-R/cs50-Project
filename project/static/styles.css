@@ -1,0 +1,279 @@
+body {
+    background-color: #faf5f9;
+}
+
+.alert {
+    background-color: #EEE8AA;
+}
+
+/* Size for brand */
+.navbar-brand {
+    font-size: medium;
+}
+
+.navbar {
+    background-color: #ccffff;
+}
+
+/* Colors for brand */
+.blue {
+    color: #537fbe;
+}
+
+.red {
+    color: #ea433b;
+}
+
+.yellow {
+    color: #f5b82e;
+}
+
+.green {
+    color: #2e944b;
+}
+
+.red_bg {
+    background: #EF9A9A;
+}
+
+.yellow_bg {
+    background: #FFF59D;
+}
+
+.green_bg {
+    background: #C5E1A5;
+}
+
+.grey_bg {
+    background: #FCEAEC;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th,
+td {
+    padding-top: 0px;
+    padding-bottom: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.question_table,
+.year_section,
+.number_section,
+.url_section,
+.q_section,
+.a_section,
+.a_section_r {
+    border-collapse: collapse;
+}
+
+.question_table {
+    margin-top: 20px;
+}
+
+.q_section,
+.a_section {
+    padding-right: 3em;
+}
+
+.q_section {
+    text-align: left;
+    padding-left: 4em;
+    text-indent: -3em;
+    padding-bottom: 10px;
+}
+
+.a_section {
+    vertical-align: -1px;
+}
+
+.alt_section {
+    text-align: left;
+    padding-left: 4em;
+    text-indent: -2em;
+}
+
+.ans_button {
+    padding-left: 2em;
+    vertical-align: 1px;
+    width: 1em;
+}
+
+.a_section {
+    text-align: left;
+    padding-left: 1em;
+    text-indent: -1em;
+}
+
+.a_section_ans {
+    color: #faf5f9;
+    text-align: right;
+}
+
+.a_section_ans:hover {
+    color: gray;
+}
+
+.year_section,
+.response {
+    text-align: left;
+}
+
+.url_section {
+    text-align: right;
+}
+
+select,
+input {
+    margin-right: 5px;
+}
+
+#validator {
+    height: 1em;
+}
+
+.nav-link {
+    font-weight: bold;
+    color: #390961;
+}
+
+.year_button label,
+.year_button input {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.year_button input[type="radio"] {
+    opacity: 0.011;
+    z-index: 100;
+}
+
+.round_shadow_button:hover,
+.quesbut:hover,
+.year_button_label:hover,
+.sub_but:hover,
+.matrix_but:hover {
+    background: #33ffff;
+}
+
+a {
+    text-decoration: none;
+    color: #00b3b3;
+}
+
+a:hover {
+    color: #33ffff;
+}
+
+
+.round_shadow_button,
+.quesbut,
+.year_button_label,
+.sub_but {
+    font: 1em trebuchet, arial;
+    color: #390961;
+    text-shadow: 0 1px 0 #ccffff;
+    text-align: center;
+    text-decoration: none;
+    background: #ccffff repeat-x bottom;
+    border: 1px solid #ddd;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -o-border-radius: 6px;
+    -ms-border-radius: 6px;
+    border-radius: 6px;
+    -moz-box-shadow: 0 1px 3px #ccffff;
+    -webkit-box-shadow: 0 1px 3px #ccffff;
+    -o-box-shadow: 0 1px 3px #ccffff;
+    -ms-box-shadow: 0 1px 3px #ccffff;
+    box-shadow: 0 1px 3px #ccffff;
+}
+
+.quesbut {
+    width: 3em;
+    height: 1em;
+    padding-bottom: 20px;
+}
+
+.sub_but_container {
+    height: 75px;
+}
+
+.sub_but {
+    width: 6em;
+    height: 2em;
+    padding-top: 7px;
+    padding-bottom: 20px
+}
+
+.year_button_label {
+    width: 4em;
+    cursor: pointer;
+    z-index: 90;
+    line-height: 1.8em;
+}
+
+.year_radio {
+    height: 0.5px;
+}
+
+#bar {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#wbar {
+    max-width: 15%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type="radio"]:checked+label {
+    background: #33ffff;
+    border-radius: 4px;
+}
+
+.selected {
+    background: #a5c8fa;
+    border-radius: 4px;
+}
+
+.section_left {
+    display: block;
+    padding-top: .3em;
+    margin-right: auto;
+}
+
+.matrix_section {
+    padding-top: .5em;
+}
+
+.matrix_td {
+    height: 6px;
+    padding: 1px;
+    line-height: 6px;
+
+}
+
+.matrix_but {
+    width: 10px;
+    height: 10px;
+    border-width: 0px;
+    padding-inline: 1px;
+}
+
+.matrix_selected {
+    background: #a5c8fa;
+}
+
+.rand_but {
+    width: auto;
+}

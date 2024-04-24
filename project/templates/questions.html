@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="container">
+        <div class="section">
+            <div>
+                <form action="/select" method="post">
+                    <input name="def_year" type="hidden" value={{def_year}} />
+                    <table>
+                    <!-- Row of selectable buttons for past years' tests -->
+                        <tr>
+                            <th colspan="10">Year</th>
+                        </tr>
+
+                        <tr>
+                            {% block year %}
+
+                            {% endblock %}
+                        </tr>
+
+                    <!-- Row/s of selectable buttons for past test's (50) questions -->
+                        <tr>
+                            <th colspan="10">Question</th>
+                        </tr>
+                        {% for row in range(5) %}
+                            <tr>
+                                {% for question in range(10) %}
+                                    <td>
+
+                                        <button type="submit" class="quesbut {% if question+1+(row*10) == def_quest | int : %} selected {% endif %}" name="question" value="{{question+1+(row*10)}}">
+                                            {{ question+1+(row*10) }}
+                                        </button>
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+
+                    </table>
+                </form>
+            </div>
+
+            {% block question_table %}
+
+            {% endblock %}
+        </div>
+
+    <!-- Navigation buttons to select Next/Previous/Random question -->
+        <div class="section_left">
+            <form action="/select" method="post">
+                <input name="def_year" type="hidden" value={{def_year}} />
+                <input name="def_quest" type="hidden" value={{def_quest}} />
+                <button type="submit" class="quesbut prevnext_but" name="prev_select" value="1">Prev
+                </button>
+                <button type="submit" class="quesbut prevnext_but" name="next_select" value="1">Next
+                </button>
+                <button type="submit" class="quesbut rand_but" name="random_select" value="1">Random
+                </button>
+
+
+
+            </form>
+
+
+        </div>
+
+    <!-- Graphical display of account owner's historical accuracy "performance-matrix" -->
+        <div class="matrix_section">
+            <form action="/select" method="post">
+                <table>
+
+                    {% for row in range(ty) %}
+                        <tr>
+                            {% for question in range(tq) %}
+
+                                <td class="matrix_td">
+                                    <button type="submit" class="matrix_but {{matrix_arr[question+(row*tq)]['accuracy']}} {% if question+1+(row*tq) == (((def_year | int) - sy)*tq) + (def_quest | int) | int: %} matrix_selected {% endif %}" name="matrix_input" value="{{question+1+(row*tq)}}">
+                                    </button>
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+
+                </table>
+            </form>
+
+        </div>
+
+{% endblock %}
+
+</div>

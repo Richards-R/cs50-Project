@@ -1,0 +1,20 @@
+{% extends "selection.html" %}
+
+{% block year %}
+    {% for year in range(ty) %}
+        {% if (year+sy) == def_year | int : %}
+
+            <td class="year_button">
+                <input type="radio" class="year_radio" id="ybut_{{year+sy}}" value="{{year+sy}}" name="year_button" />
+
+                <label class="year_button_label selected" for="ybut_{{year+sy}}">{{year+sy}}</label>
+            </td>
+
+        {% else %}
+            <td class="year_button">
+                <input type="radio" class="year_radio" id="ybut_{{year+sy}}" value="{{year+sy}}" name="year_button" />
+                <label class="year_button_label" for="ybut_{{year+sy}}">{{year+sy}}</label>
+            </td>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

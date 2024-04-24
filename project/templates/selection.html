@@ -1,0 +1,112 @@
+{% extends "questions.html" %}
+
+{% block year %}
+
+{% endblock %}
+
+{% block question_table %}
+    {% if question_entry %}
+        <form action="/submit" method="post">
+    <!-- Table for displaying selected question, optional additional information, multi-choice answers (4) -->
+            <table class="question_table">
+                <tbody>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="year_section" id="q_year">
+                            {{ question_entry.Year }} #{{ question_entry.Prob_No }}
+                        </td>
+                        <td colspan="9" class="url_section">
+                            <a target="_blank" href="{{ question_entry.Link }}">Reference</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="12" class="q_section">
+                            {{ question_entry.Question }}
+                        </td>
+                    </tr>
+
+                    {% for row in range(alts) %}
+                        <tr>
+                            <td colspan="12" class="alt_section">
+                                {{ question_entry['Alt_'+(row+1)|string] }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                    {% for row in range(4) %}
+                        <tr>
+                            <td colspan="1" class="ans_button">
+                                <input type="radio" class="answer_radio" id="abut_{{row+1}}" value="{{row+1}}" name="ans_button" required />
+                            </td>
+                            <td colspan="11" class="a_section">
+                                {{ question_entry['Choice_'+(row+1)|string] }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                    <tr class="sub_but_container">
+                        <td colspan="2" class="submit_button">
+                            <input name="q_year" type="hidden" value="{{ question_entry.Year }}" />
+                            <input name="q_num" type="hidden" value="{{ question_entry.Prob_No }}" />
+                            <button type="submit" class="sub_but" name="submit_button">
+                                Submit
+                            </button>
+                        </td>
+                        {% if mark == 1 %}
+                            <td colspan="3" class="green response">{{response}}</td>
+                        {% else %}
+                            <td colspan="3" class="red response">{{response}}</td>
+                        {% endif %}
+                        <td colspan="7"></td>
+                    </tr>
+
+                    {% if latest_ten %}
+            <!-- Display previous dates same question was attempted and colour according to whether attempt was correct/wrong -->
+                        <tr>
+                            <td colspan="3" class="a_section_r">Ratio {{ pct_score }}</td>
+                            <td colspan="7" class="a_section">
+                                Latest →　 {% for row in latest_ten %}
+                                    {% if row['mark'] == 1 %}
+                                        <span class="green">{{row['date'][:8]}}　</span>
+                                    {% else %}
+                                        <span class="red">{{row['date'][:8]}}　</span>
+                                    {% endif %} {% endfor %}
+                            </td>
+                            <td colspan="2" class="a_section_ans">
+                                {{ question_entry.Correct_Ans }}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="10"></td>
+                            <td colspan="2" class="a_section_ans">
+                                {{ question_entry.Correct_Ans }}
+                            </td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </form>
+    {% else %}
+    {% endif %}
+{% endblock %}
+
+{% block matrix %}
+
+
+
+{% endblock %}
